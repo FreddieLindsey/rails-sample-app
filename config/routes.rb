@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'movie/index'
-  get 'movie/create'
-  get 'movie/show'
-  get 'movie/destroy'
-  get 'movie/edit'
+  get 'movies', to: 'movie#index'
+  get 'movie/:id', to: 'movie#show'
 
-  root 'pages#index'
+  post 'movie/create'
+  put 'movie/edit/:id', to: 'movie#edit'
+  delete 'movie/destroy/:id', to: 'movie#destroy'
+
+  root 'movie#index'
 end
