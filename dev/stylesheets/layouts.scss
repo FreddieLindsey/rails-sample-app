@@ -1,6 +1,11 @@
 @import './colours';
 @import './variables';
 
+* {
+  font-size: $font-size-normal;
+  font-family: $font-family-standard;
+}
+
 body {
   background: $background-colour;
 }

@@ -5,6 +5,10 @@ var webpack = require("webpack");
 var path = require("path");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+var dev = process.env.NODE_ENV !== "production";
+var cssloader = "css-loader!postcss-loader";
+var sassloader = "style-loader!css-loader!sass-loader!postcss-loader";
+
 module.exports = {
   cache: true,
   debug: true,
@@ -48,11 +52,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("css-loader!postcss-loader")
+        loader: dev ? cssloader : ExtractTextPlugin.extract(cssloader)
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader!postcss-loader")
+        loader: dev ? sassloader : ExtractTextPlugin.extract(sassloader)
       }
     ],
     noParse: /lie\.js|[\s\S]*.(svg|ttf|eot)/

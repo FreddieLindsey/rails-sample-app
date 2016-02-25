@@ -1,3 +1,4 @@
+require("./MovieList.scss");
 import React from 'react';
 import $ from 'jquery';
 
@@ -30,12 +31,20 @@ export default class MovieList extends React.Component {
   render() {
     let count = 1;
     return (
-      <div>
-        <h1>Movie List</h1>
+      <div className="movielist-container" >
+        <div className="movielist-header">
+          Movie List
+        </div>
         { this.state.movies.map((m) => {
-          return (<div key={ m.id }>
-            Movie { count++ } id { m.id }, title { m.title }
-          </div>);
+          return (
+            <div key={ m.id } className="movielist-row" >
+            Movie { count } - id { m.id }, title { m.title }
+            {
+              count++ != this.state.movies.length &&
+              <hr /> // List separator
+            }
+            </div>
+          );
         })}
       </div>
     )
