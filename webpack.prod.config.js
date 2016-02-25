@@ -4,10 +4,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var options = require("./webpack.dev.config");
 
-options.entry = options.entry[-1];
-
-options.output.path = __dirname + '/dist';
-options.output.publicPath = "/dist/";
+options.entry = [ options.entry[options.entry.length - 1] ];
 
 options.plugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
@@ -27,5 +24,8 @@ options.plugins = [
   new ExtractTextPlugin('style.css', { allChunks: true })
 ];
 
+delete options.output.publicPath;
 delete options.debug;
 delete options.devtool;
+
+module.exports = options;
