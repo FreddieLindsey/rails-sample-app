@@ -4,7 +4,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var options = require("./webpack.dev.config");
 
-options.entry = './dev/app.jsx';
+options.entry = options.entry[-1];
 
 options.output.path = __dirname + '/dist';
 options.output.publicPath = "/dist/";

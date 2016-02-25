@@ -11,7 +11,7 @@ module.exports = {
   devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client?path=http://localhost:10204/__webpack_hmr',
-    './dev/app.jsx'
+    './dev/index.js'
   ],
   output: {
     publicPath: 'http://localhost:10204/',

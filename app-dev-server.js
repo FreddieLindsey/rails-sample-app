@@ -13,12 +13,17 @@ const PORT = 10204;
 
 app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,
+  inline: true,
   stats: {
     colors: true
   }
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));
+
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 app.listen(PORT, 'localhost', err => {
   if (err) {
