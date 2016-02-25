@@ -14,6 +14,7 @@ $border-movielist: 1px solid darken($background-colour, 20%);
 
   hr {
     border: $border-movielist;
+    margin: 0 $spacing-unit;
   }
 }
 
