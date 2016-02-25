@@ -1,6 +1,7 @@
 @import '../stylesheets/colours';
 @import '../stylesheets/variables';
 
+$border-movielist-color: darken($background-colour, 20%);
 $border-movielist: 1px solid darken($background-colour, 20%);
 
 .movielist-container {
@@ -14,6 +15,8 @@ $border-movielist: 1px solid darken($background-colour, 20%);
 
   hr {
     border: $border-movielist;
+    border-color: lighten($border-movielist-color, 15%);
+    border-width: 1px;
     margin: 0 $spacing-unit;
   }
 }
@@ -22,6 +25,7 @@ $border-movielist: 1px solid darken($background-colour, 20%);
   border-bottom: $border-movielist;
   font-size: $font-size-large;
   padding: $spacing-unit;
+  text-align: center;
 }
 
 .movielist-row {
