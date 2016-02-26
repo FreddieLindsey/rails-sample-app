@@ -29,25 +29,28 @@ export default class MovieList extends React.Component {
   }
 
   render() {
-    let count = 1;
+    let count = 0;
     return (
       <div className="movielist-container" >
-        <div className="movielist-header">
+        <div className="movielist-header" >
           Movie List
         </div>
-        { this.state.movies.map((m) => {
-          return (
-            <div key={ m.id } >
-              <div className="movielist-row" >
-                Movie { count } - id { m.id }, title { m.title }
-              </div>
-              {
-                count++ != this.state.movies.length &&
-                <hr /> // List separator
-              }
-            </div>
-          );
-        })}
+        {
+          this.state.movies.length > 0 &&
+          <div className="movielist-content" >
+            { this.state.movies.map((m) => {
+              count++;
+              return (
+                <div key={ m.id } >
+                  <div className="movielist-row" >
+                    Movie { count } - id { m.id }, title { m.title }
+                  </div>
+                  { count != this.state.movies.length && <hr /> }
+                </div>
+              );
+            })}
+          </div>
+        }
       </div>
     )
   };

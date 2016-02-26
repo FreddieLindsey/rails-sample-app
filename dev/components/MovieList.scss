@@ -22,10 +22,13 @@ $border-movielist: 1px solid darken($background-colour, 20%);
 }
 
 .movielist-header {
-  border-bottom: $border-movielist;
   font-size: $font-size-large;
   padding: $spacing-unit;
   text-align: center;
+}
+
+.movielist-content {
+  border-top: $border-movielist;
 }
 
 .movielist-row {
