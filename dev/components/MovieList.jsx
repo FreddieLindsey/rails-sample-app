@@ -37,9 +37,9 @@ export default class MovieList extends React.Component {
         </div>
         { this.state.movies.map((m) => {
           return (
-            <div>
-              <div key={ m.id } className="movielist-row" >
-              Movie { count } - id { m.id }, title { m.title }
+            <div key={ m.id } >
+              <div className="movielist-row" >
+                Movie { count } - id { m.id }, title { m.title }
               </div>
               {
                 count++ != this.state.movies.length &&
