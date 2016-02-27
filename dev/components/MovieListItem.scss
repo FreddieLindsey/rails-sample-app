@@ -18,6 +18,10 @@ $watched-item-width: 30px;
     box-sizing: border-box;
     width: 50%;
   }
+
+  @media screen and (min-width: $on-desktop) {
+    padding: $small-space $spacing-unit;
+  }
 }
 
 .movielist-item-poster {
