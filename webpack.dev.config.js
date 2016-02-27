@@ -6,7 +6,7 @@ var path = require("path");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var cssloader = "css-loader!postcss-loader";
-var sassloader = "css-loader!sass-loader!postcss-loader";
+var sassloader = "style-loader!css-loader!sass-loader!postcss-loader";
 
 module.exports = {
   _cssloader: cssloader,

@@ -29,7 +29,7 @@ options.module.loaders = [
   },
   {
     test: /\.scss$/,
-    loader: ExtractTextPlugin.extract(options._sassloader)
+    loader: ExtractTextPlugin.extract("css-loader!sass-loader!postcss-loader")
   }
 ]
 

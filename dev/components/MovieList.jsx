@@ -1,6 +1,7 @@
 require("./MovieList.scss");
 import React from 'react';
 import $ from 'jquery';
+import MovieListItem from './MovieListItem';
 
 export default class MovieList extends React.Component {
   static displayName = 'Movie List';
@@ -41,12 +42,8 @@ export default class MovieList extends React.Component {
             { this.state.movies.map((m) => {
               count++;
               return (
-                <div key={ m.id } >
-                  <div className="movielist-row" >
-                    Movie { count } - id { m.id }, title { m.title }
-                  </div>
-                  { count != this.state.movies.length && <hr /> }
-                </div>
+                <MovieListItem key={ m.id } movie={ m } index={ count }
+                               total={ this.state.movies.length }/>
               );
             })}
           </div>
