@@ -1,0 +1,47 @@
+@import '../stylesheets/colours';
+@import '../stylesheets/variables';
+
+.movielist-add-container {
+  background: darken($background-colour, 5%);
+  box-shadow: 2px 2px 10px darken($background-colour, 10%);
+  box-sizing: border-box;
+  display: inline-block;
+  line-height: 2;
+  padding: $spacing-unit-small $spacing-unit;
+  width: 100%;
+}
+
+%movielist-add-parts {
+  float: left;
+}
+
+.movielist-add-switcher {
+  @extend %movielist-add-parts;
+  width: 10%;
+}
+
+.movielist-add-input-container {
+  @extend %movielist-add-parts;
+  box-sizing: border-box;
+  padding: 0 $spacing-unit;
+  width: calc(90% - #{$button-width} - (#{$spacing-unit-small}));
+}
+
+.movielist-add-input {
+  background: lighten($background-colour, 8%);
+  border: none;
+  box-shadow: 1px 1px 10px darken($background-colour, 15%);
+  box-sizing: border-box;
+  font-family: $font-family-standard;
+  font-size: $font-size-normal;
+  outline: none;
+  padding: 5px;
+  width: 100%;
+}
+
+.movielist-add-button {
+  @extend %movielist-add-parts;
+  color: $green;
+  padding-right: $spacing-unit-small;
+  width: $button-width;
+}

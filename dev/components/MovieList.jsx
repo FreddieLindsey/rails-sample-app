@@ -1,6 +1,7 @@
 require("./MovieList.scss");
 import React from 'react';
 import $ from 'jquery';
+import MovieListAdd from './MovieListAdd';
 import MovieListItem from './MovieListItem';
 
 export default class MovieList extends React.Component {
@@ -36,6 +37,7 @@ export default class MovieList extends React.Component {
         <div className="movielist-header" >
           Movie List
         </div>
+        <MovieListAdd />
         {
           this.state.movies.length > 0 &&
           <div className="movielist-content" >
