@@ -17,14 +17,48 @@
 
 .movielist-add-switcher {
   @extend %movielist-add-parts;
-  width: 10%;
+  border-radius: 2px;
+  box-sizing: content-box;
+  margin: 0 5px;
+  width: calc(20% - 10px);
+
+  %movielist-add-switcher-item {
+    background: lighten($background-colour, 10%);
+    border: 1px solid $grey-dark;
+    font-family: $font-family-standard;
+    font-size: $font-size-normal;
+    padding: 5px;
+  }
+
+  .movielist-add-item-switcher {
+    @extend %movielist-add-switcher-item;
+    width: 50%;
+
+    &:first-child {
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+
+    &:last-child {
+      border-left: none;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+  }
+
+  .movielist-add-item-switcher-selected {
+    @extend .movielist-add-item-switcher;
+    background: $background-colour-selected;
+    box-shadow: inset 0 0 5px $grey-dark;
+    color: $white;
+  }
 }
 
 .movielist-add-input-container {
   @extend %movielist-add-parts;
   box-sizing: border-box;
   padding: 0 $spacing-unit;
-  width: calc(90% - #{$button-width} - (#{$spacing-unit-small}));
+  width: calc(80% - #{$button-width} - (#{$spacing-unit-small}));
 }
 
 .movielist-add-input {
