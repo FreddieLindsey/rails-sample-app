@@ -36,3 +36,6 @@ bower.json
 
 # Node modules
 node_modules
+
+# Distribution assets
+dist

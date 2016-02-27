@@ -1,0 +1,61 @@
+@import '../stylesheets/colours';
+@import '../stylesheets/variables';
+
+$small-space: calc(0.35 * #{$spacing-unit});
+$poster-height: 220px;
+$poster-width: 150px;
+$watched-item-width: 30px;
+
+.movielist-item-row {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  float: left;
+  height: calc($poster-height + 2 * #{$small-space});
+  padding: $small-space $small-space;
+  width: 100%;
+
+  @media screen and (min-width: $on-tablet) {
+    box-sizing: border-box;
+    width: 50%;
+  }
+
+  @media screen and (min-width: $on-desktop) {
+    padding: $small-space $spacing-unit;
+  }
+}
+
+.movielist-item-poster {
+  align-items: center;
+  display: flex;
+  height: $poster-height;
+  width: $poster-width;
+
+  img {
+    box-shadow: 1px 1px 5px darken($background-colour, 20%);
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.movielist-item-header {
+  margin: 0 $small-space;
+  width: calc(100% - (#{$poster-width} + #{$watched-item-width}));
+}
+
+.movielist-item-title {
+  font-size: $font-size-medium;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.movielist-item-released {
+  font-size: $font-size-smaller;
+}
+
+.movielist-item-watched-icon {
+  cursor: pointer;
+  margin-left: auto;
+  width: $watched-item-width;
+}

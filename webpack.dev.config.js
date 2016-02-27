@@ -5,7 +5,11 @@ var webpack = require("webpack");
 var path = require("path");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+var cssloader = "css-loader!postcss-loader";
+var sassloader = "style-loader!css-loader!sass-loader!postcss-loader";
+
 module.exports = {
+  _cssloader: cssloader,
   cache: true,
   debug: true,
   devtool: 'source-map',
@@ -48,11 +52,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("css-loader!postcss-loader")
+        loader: cssloader
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader!postcss-loader")
+        loader: sassloader
       }
     ],
     noParse: /lie\.js|[\s\S]*.(svg|ttf|eot)/
