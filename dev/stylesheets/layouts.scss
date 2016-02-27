@@ -1,11 +1,15 @@
 @import './colours';
 @import './variables';
 
-* {
+body {
+  background: $background-colour;
   font-size: $font-size-normal;
   font-family: $font-family-standard;
 }
 
-body {
-  background: $background-colour;
+button {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
 }
