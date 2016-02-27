@@ -10,7 +10,6 @@ var sassloader = "style-loader!css-loader!sass-loader!postcss-loader";
 
 module.exports = {
   _cssloader: cssloader,
-  _sassloader: sassloader,
   cache: true,
   debug: true,
   devtool: 'source-map',
