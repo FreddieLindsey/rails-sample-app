@@ -1,3 +1,4 @@
+@import '../stylesheets/colours';
 @import '../stylesheets/variables';
 
 $small-space: calc(0.35 * #{$spacing-unit});
@@ -10,8 +11,8 @@ $watched-item-width: 30px;
   box-sizing: border-box;
   display: flex;
   float: left;
-  height: 220px;
-  padding: $small-space;
+  height: calc($poster-height + 2 * #{$small-space});
+  padding: $small-space $small-space;
   width: 100%;
 
   @media screen and (min-width: $on-tablet) {
@@ -31,7 +32,7 @@ $watched-item-width: 30px;
   width: $poster-width;
 
   img {
-    border-radius: 8px;
+    box-shadow: 1px 1px 5px darken($background-colour, 20%);
     margin: auto;
     max-height: 100%;
     max-width: 100%;
