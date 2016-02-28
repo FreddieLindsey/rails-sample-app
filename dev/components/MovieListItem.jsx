@@ -24,7 +24,7 @@ export default class MovieListItem extends React.Component {
       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
     ];
     let month = months[date.getMonth()];
-    let day = date.getDay()
+    let day = date.getDate()
     return `${day} ${month} ${year}`;
   }
 
