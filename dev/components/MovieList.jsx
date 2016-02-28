@@ -91,9 +91,12 @@ export default class MovieList extends React.Component {
       url: `http://localhost:3001/movie/destroy/${id}`
     }).done((res) => {
       let movies = this.state.movies;
-      console.log(movies.filter((e) => {
-        return e.id != res.id;
-      }));
+      movies = movies.filter((e) => {
+        return e.id != res.destroyed.id;
+      });
+      this.setState({
+        movies: movies
+      });
     }).fail((err) => {
       console.log(err);
     })

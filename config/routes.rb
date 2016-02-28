@@ -5,6 +5,4 @@ Rails.application.routes.draw do
   post 'movie/create'
   put 'movie/edit/:id', to: 'movie#edit'
   delete 'movie/destroy/:id', to: 'movie#destroy'
-
-  root 'movie#index'
 end
