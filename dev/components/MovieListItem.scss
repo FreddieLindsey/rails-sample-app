@@ -1,8 +1,8 @@
 @import '../stylesheets/colours';
 @import '../stylesheets/variables';
 
-$poster-height: 220px;
-$poster-width: 150px;
+$poster-height: 145px;
+$poster-width: 100px;
 
 .movielist-item-row {
   align-items: center;
@@ -29,6 +29,11 @@ $poster-width: 150px;
   height: $poster-height;
   width: $poster-width;
 
+  @media screen and (min-width: $on-phone-big) {
+    height: calc(1.5 * #{$poster-height});
+    width: calc(1.5 * #{$poster-width});
+  }
+
   img {
     box-shadow: 1px 1px 5px darken($background-colour, 20%);
     margin: auto;
@@ -43,9 +48,13 @@ $poster-width: 150px;
 }
 
 .movielist-item-title {
-  font-size: $font-size-medium;
+  font-size: $font-size-normal;
   font-weight: bold;
   margin-bottom: 5px;
+
+  @media screen and (min-width: $on-phone-big) {
+    font-size: $font-size-medium;
+  }
 }
 
 .movielist-item-released {
