@@ -2,8 +2,6 @@
 @import '../stylesheets/variables';
 
 .movielist-add-container {
-  background: darken($background-colour, 5%);
-  box-shadow: 2px 2px 10px darken($background-colour, 10%);
   box-sizing: border-box;
   display: inline-block;
   line-height: 2;
