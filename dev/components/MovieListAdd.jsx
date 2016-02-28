@@ -49,6 +49,9 @@ export default class MovieListAdd extends React.Component {
     }
     return (
       <div className="movielist-add-container">
+        <div className="movielist-add-input-container">
+          <input value={ this.state.inputValue } onChange={ this.handleInput } className="movielist-add-input" />
+        </div>
         <div className="movielist-add-switcher">
           <button className={ buttonClass('id') } onClick={ this.handleSwitchId }>
             ID
@@ -56,9 +59,6 @@ export default class MovieListAdd extends React.Component {
           <button className={ buttonClass('title') } onClick={ this.handleSwitchTitle }>
             Title
           </button>
-        </div>
-        <div className="movielist-add-input-container">
-          <input value={ this.state.inputValue } onChange={ this.handleInput } className="movielist-add-input" />
         </div>
         <button onClick={ this.handleAdd } className="movielist-add-button fa fa-2x fa-plus-square-o" />
       </div>

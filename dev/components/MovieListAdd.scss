@@ -18,9 +18,12 @@
 .movielist-add-switcher {
   @extend %movielist-add-parts;
   border-radius: 2px;
-  box-sizing: content-box;
-  margin: 0 5px;
-  width: calc(20% - 10px);
+  width: 80%;
+
+  @media screen and (min-width: $on-tablet) {
+    margin: 0 5px;
+    width: calc(20% - 10px);
+  }
 
   %movielist-add-switcher-item {
     background: lighten($background-colour, 10%);
@@ -56,9 +59,14 @@
 
 .movielist-add-input-container {
   @extend %movielist-add-parts;
-  box-sizing: border-box;
-  padding: 0 $spacing-unit;
-  width: calc(80% - #{$button-width} - (#{$spacing-unit-small}));
+  float: left;
+  width: 100%;
+
+  @media screen and (min-width: $on-tablet) {
+    box-sizing: border-box;
+    padding: 0 $spacing-unit-small;
+    width: calc(80% - #{$button-width} - (#{$spacing-unit-small}));
+  }
 }
 
 .movielist-add-input {
@@ -76,6 +84,11 @@
 .movielist-add-button {
   @extend %movielist-add-parts;
   color: $green;
-  padding-right: $spacing-unit-small;
-  width: $button-width;
+  float: right;
+  width: 20%;
+
+  @media screen and (min-width: $on-tablet) {
+    padding-right: $spacing-unit-small;
+    width: $button-width;
+  }
 }
