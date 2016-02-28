@@ -24,6 +24,10 @@ export default class MovieListAdd extends React.Component {
     });
   }
 
+  handleEnter = (e) => {
+    if (e.keyCode == 13) return this.handleAdd();
+  }
+
   handleInput = (e) => {
     e.preventDefault();
     this.setState({
@@ -50,7 +54,7 @@ export default class MovieListAdd extends React.Component {
     return (
       <div className="movielist-add-container">
         <div className="movielist-add-input-container">
-          <input value={ this.state.inputValue } onChange={ this.handleInput } className="movielist-add-input" />
+          <input value={ this.state.inputValue } onChange={ this.handleInput } onKeyDown={ this.handleEnter } className="movielist-add-input" />
         </div>
         <div className="movielist-add-switcher">
           <button className={ buttonClass('id') } onClick={ this.handleSwitchId }>
