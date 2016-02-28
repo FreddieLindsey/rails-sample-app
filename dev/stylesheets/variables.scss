@@ -1,5 +1,6 @@
 // Page variables
 $page-width-max: 1100px;
+$on-phone-big: 400px;
 $on-tablet: 700px;
 $on-desktop: 1000px;
 
@@ -16,3 +17,7 @@ $font-family-standard: 'Roboto', Helvetica, Arial, serif;
 
 // Spacing
 $spacing-unit: 20px;
+$spacing-unit-small: 0.35 * $spacing-unit;
+
+// Font-awesome buttons
+$button-width: 30px;
