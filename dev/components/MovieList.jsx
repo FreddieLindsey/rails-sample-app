@@ -20,6 +20,10 @@ let strip = (str) => {
     .replace(/\s+/g, '%20') // collapse whitespace and replace by -
 };
 
+let compareMovies = (a, b) => {
+  return a.title.localeCompare(b.title);
+};
+
 export default class MovieList extends React.Component {
   static displayName = 'Movie List';
 
@@ -27,7 +31,7 @@ export default class MovieList extends React.Component {
     super(props);
     this.state = {
       movies: [],
-      switchParam: 'id'
+      switchParam: 'title'
     };
   }
 
@@ -38,9 +42,10 @@ export default class MovieList extends React.Component {
   getMovies() {
     $.ajax({
       url: 'http://localhost:3001/movies'
-    }).done((result) => {
+    }).done((movies) => {
+      movies.sort(compareMovies);
       this.setState({
-        movies: result
+        movies: movies
       });
     }).fail((err) => {
       console.log(err);
@@ -95,6 +100,7 @@ export default class MovieList extends React.Component {
       movies = movies.filter((e) => {
         return e.id != res.destroyed.id;
       });
+      movies.sort(compareMovies);
       this.setState({
         movies: movies
       }, () => {

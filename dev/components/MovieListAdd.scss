@@ -67,6 +67,10 @@
     padding: 0 $spacing-unit-small;
     width: calc(80% - #{$button-width} - (#{$spacing-unit-small}));
   }
+
+  @media screen and (min-width: $on-desktop) {
+    padding: 0 $spacing-unit;
+  }
 }
 
 .movielist-add-input {
