@@ -13,7 +13,8 @@ export default class MovieListItem extends React.Component {
       watched: React.PropTypes.bool
     }).isRequired,
     index: React.PropTypes.number.isRequired,
-    total: React.PropTypes.number.isRequired
+    total: React.PropTypes.number.isRequired,
+    handleDelete: React.PropTypes.func.isRequired
   };
 
   getDate(date) {
@@ -27,13 +28,19 @@ export default class MovieListItem extends React.Component {
     return `${day} ${month} ${year}`;
   }
 
+  handleDelete = () => {
+    this.props.handleDelete(this.props.movie.id);
+  }
+
   render() {
     let m = this.props.movie;
     let i = this.props.index;
     let t = this.props.total;
     let r = new Date(m.released)
     let wStyleDefault = "movielist-item-watched-icon fa fa-2x"
-    let wStyle = m.watched ? `${wStyleDefault} fa-times-circle-o` : `${wStyleDefault} fa-check-circle-o`;
+    let wStyle = m.watched ?
+      `${wStyleDefault} fa-times-circle-o` :
+      `${wStyleDefault} fa-check-circle-o`;
     return (
       <div key={ m.id } className="movielist-item-row" >
         <div className="movielist-item-poster" >
@@ -50,7 +57,7 @@ export default class MovieListItem extends React.Component {
             </div>
           }
         </div>
-        <button className={ wStyle } />
+        <button className={ wStyle } onClick={ this.handleDelete } />
       </div>
     )
   }

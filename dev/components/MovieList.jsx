@@ -59,7 +59,7 @@ export default class MovieList extends React.Component {
 
     let addToServer = (m) => {
       $.ajax({
-        type: "POST",
+        type: 'POST',
         url: 'http://localhost:3001/movie/create',
         data: m
       }).done((res) => {
@@ -83,6 +83,20 @@ export default class MovieList extends React.Component {
     }).fail((err) => {
       console.log('Error\n' + err);
     });
+  }
+
+  handleDelete = (id) => {
+    $.ajax({
+      type: 'DELETE',
+      url: `http://localhost:3001/movie/destroy/${id}`
+    }).done((res) => {
+      let movies = this.state.movies;
+      console.log(movies.filter((e) => {
+        return e.id != res.id;
+      }));
+    }).fail((err) => {
+      console.log(err);
+    })
   }
 
   handleSwitch = (param) => {
@@ -111,7 +125,8 @@ export default class MovieList extends React.Component {
               count++;
               return (
                 <MovieListItem key={ m.id } movie={ m } index={ count }
-                               total={ this.state.movies.length }/>
+                               total={ this.state.movies.length }
+                               handleDelete={ this.handleDelete } />
               );
             })}
           </div>
