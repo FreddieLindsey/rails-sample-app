@@ -73,12 +73,13 @@ export default class MovieList extends React.Component {
 
     $.ajax({
       url: urlQuery
-    }).done((result) => {
+    }).done((res) => {
+      if (res.Response === 'False') return;
       let m = {};
-      m.title = result.Title;
-      m.imdb_id = result.imdbID;
-      m.poster_url = result.Poster;
-      m.released = result.Released;
+      m.title = res.Title;
+      m.imdb_id = res.imdbID;
+      m.poster_url = res.Poster;
+      m.released = res.Released;
       addToServer(m);
     }).fail((err) => {
       console.log('Error\n' + err);
@@ -96,6 +97,8 @@ export default class MovieList extends React.Component {
       });
       this.setState({
         movies: movies
+      }, () => {
+        console.log('Destroyed ' + res.destroyed);
       });
     }).fail((err) => {
       console.log(err);
