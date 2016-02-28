@@ -58,6 +58,7 @@
 .movielist-add-input-container {
   @extend %movielist-add-parts;
   float: left;
+  padding: 0 0 $spacing-unit-small;
   width: 100%;
 
   @media screen and (min-width: $on-tablet) {
@@ -79,7 +80,7 @@
   font-family: $font-family-standard;
   font-size: $font-size-normal;
   outline: none;
-  padding: 5px;
+  padding: 10px 5px;
   width: 100%;
 }
 
